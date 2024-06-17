@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { SpotsService } from './spots.service';
 import { CreateSpotDto } from './dto/create-spot.dto';
 import { UpdateSpotDto } from './dto/update-spot.dto';
@@ -12,7 +20,6 @@ export class SpotsController {
     @Body() createSpotDto: CreateSpotDto,
     @Param('eventId') eventId: string,
   ) {
-    console.log(eventId);
     return this.spots.create({ ...createSpotDto, eventId });
   }
 

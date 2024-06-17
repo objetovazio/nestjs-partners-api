@@ -27,7 +27,7 @@ PATCH http://localhost:3000/events/{{ eventId }}
 Content-Type: application/json
 
 {
-    "name": "New Event 2",
+    "name": "New Event 3",
     "price": 1060
 }
 
@@ -40,11 +40,12 @@ POST http://localhost:3000/events/{{ eventId }}/spots
 Content-Type: application/json
 
 {
-    "name": "A4"
+    "name": "A{{$randomInt 1 100}}"
 }
 
 ### Instance spot ID
 @spotId = {{createSpot.response.body.id}}
+@spotName = {{createSpot.response.body.name}}
 
 ### Get Spot by ID
 GET http://localhost:3000/events/{{ eventId }}/spots/{{ spotId }}
@@ -60,3 +61,14 @@ Content-Type: application/json
 
 ### Delete Spot by ID
 DELETE http://localhost:3000/events/{{ eventId }}/spots/{{ spotId }}
+
+
+### Reserve a spot
+POST http://localhost:3000/events/{{ eventId }}/reserve
+Content-Type: application/json
+
+{
+    "spots": ["{{spotName}}", "A92"],
+    "ticket_kind": "half",
+    "email": "teste@testing.com"
+}

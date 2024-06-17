@@ -33,8 +33,6 @@ export class SpotsService {
   }
 
   findOne(eventId: string, spotId: string) {
-    console.log({ eventId, spotId });
-    console.log(eventId);
     return this.prismaService.spot.findFirst({
       where: {
         id: spotId,
