@@ -7,7 +7,7 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { SpotsService } from './spots.service';
+import { SpotsService } from '@app/core/spots/spots.service';
 import { CreateSpotRequest } from './requests/create-spot.request';
 import { UpdateSpotRequest } from './requests/update-spot.request';
 
