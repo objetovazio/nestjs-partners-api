@@ -55,7 +55,7 @@ Content-Type: application/json
 
 {
     "name": "A4 Updated",
-    "status": "reserved"
+    "status": "avaiable"
 }
 
 ### Delete Spot by ID
